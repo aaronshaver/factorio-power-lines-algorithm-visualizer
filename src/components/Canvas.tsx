@@ -1,14 +1,17 @@
 import React, { useRef, useEffect } from 'react';
-import Grid from '../Grid'
 import Pole from '../Pole'
+import Grid from '../Grid'
 
-const grid = new Grid()
-const gridSize = grid.size;
-const squareSize = grid.squareSize;
 const backgroundColor = '#404040'
 const borderColor = '#808080'
 
-const Canvas: React.FC = () => {
+type CanvasProps = {
+    grid: Grid
+}
+
+const Canvas: React.FC<CanvasProps> = ({ grid }) => {
+    const gridSize = grid.size;
+    const squareSize = grid.squareSize;
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
     const drawGrid = (context: CanvasRenderingContext2D) => {
@@ -33,7 +36,7 @@ const Canvas: React.FC = () => {
                 drawGrid(context);
             }
         }
-    }, []);
+    }, [grid]);
 
     const drawNewPole = (pole: Pole) => {
         const drawX = pole.x * squareSize + squareSize * 0.25
@@ -43,7 +46,6 @@ const Canvas: React.FC = () => {
         if (canvasRef.current) {
             const context = canvasRef.current.getContext('2d');
             if (context) {
-                console.log("hi")
                 context.fillStyle = "red";
                 context.fillRect(drawX, drawY, poleSize, poleSize);
             }
@@ -63,7 +65,6 @@ const Canvas: React.FC = () => {
         const addedPole = grid.addPole(pole)
 
         if (addedPole) {
-            console.log(grid.getPoles())
             drawNewPole(pole)
         }
     }

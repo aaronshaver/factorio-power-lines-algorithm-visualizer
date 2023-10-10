@@ -1,4 +1,8 @@
-const Controls = ({ }) => {
+type ControlsProps = {
+    clearGrid: () => void
+}
+
+const Controls: React.FC<ControlsProps> = ({ clearGrid }) => {
   return (
     <div className="ControlsWrapper" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
       Algorithm:
@@ -23,8 +27,7 @@ const Controls = ({ }) => {
             Minimum; prefer no diagonals
         </label>
       </div>
-      {/* <button onClick={handlePlay} disabled={isProcessing}>Play</button> */}
-      <button style={{ marginBottom: '10px' }}>Clear</button>
+      <button onClick={clearGrid} style={{ marginBottom: '10px' }}>Clear</button>
     </div>
   );
 };

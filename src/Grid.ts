@@ -26,6 +26,10 @@ class Grid {
     getPoles() {
         return this.poles
     }
+
+    clearPoles() {
+        this.poles = []
+    }
 }
 
 export default Grid

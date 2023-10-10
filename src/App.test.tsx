@@ -51,3 +51,14 @@ test('adding a pole where one already exists does not add second pole to grid', 
 
   expect(grid.getPoles().length).toBe(1);
 });
+
+test('clear grid poles reduces pole count to zero', () => {
+  const grid = new Grid()
+  const pole1 = new Pole(0, 0)
+  const addPole1 = grid.addPole(pole1)
+  expect(addPole1).toBeTruthy();
+  expect(grid.getPoles().length).toBe(1);
+
+  grid.clearPoles()
+  expect(grid.getPoles().length).toBe(0);
+});
