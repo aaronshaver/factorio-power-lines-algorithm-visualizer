@@ -3,9 +3,9 @@ import Grid from '../Grid'
 
 const grid = new Grid()
 const gridSize = grid.size;
-const squareSize = 40;
-const backgroundColor = '#808080'
-const borderColor = '#404040'
+const squareSize = grid.squareSize;
+const backgroundColor = '#404040'
+const borderColor = '#808080'
 
 const Canvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);

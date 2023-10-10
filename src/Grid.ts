@@ -1,12 +1,29 @@
 import Pole from './Pole'
 
 class Grid {
-    poles: Pole[]
+    private poles: Pole[]
     size: number
+    squareSize: number
 
     constructor() {
         this.size = 16
+        this.squareSize = 40
         this.poles = []
+    }
+
+    addPole(pole: Pole) {
+        // check for existing pole at proposed new pole's location
+        for (let existing_pole of this.poles) {
+            if (existing_pole.x === pole.x && existing_pole.y === pole.y) {
+                return
+            }
+        }
+
+        this.poles.push(pole)
+    }
+
+    getPoles() {
+        return this.poles
     }
 }
 

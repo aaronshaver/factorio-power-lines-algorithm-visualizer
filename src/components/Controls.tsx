@@ -7,7 +7,7 @@ const Controls = ({ }) => {
       <div className="radioWrapper" style={{ marginTop: '10px' }}>
         <label>
             {/* <input type="radio" value="All" checked={algo === 'All'} onChange={} /> */}
-            <input type="radio" value="All" checked />
+            <input type="radio" value="All" />
             All
         </label>
       </div>
