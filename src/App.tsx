@@ -1,11 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Controls from './components/Controls';
 
 function App() {
   return (
     <div className="App">
-      <p>Factorio-style Power Line Algorithm Visualizer</p>
+      <p><b>Factorio-style Power Line Algorithm Visualizer</b></p>
+      <Controls />
     </div>
   );
 }
