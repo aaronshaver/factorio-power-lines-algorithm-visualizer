@@ -19,7 +19,7 @@ const Controls = ({ }) => {
         </label>
       </div>
       {/* <button onClick={handlePlay} disabled={isProcessing}>Play</button> */}
-      <button>Clear</button>
+      <button style={{ marginBottom: '10px' }}>Clear</button>
     </div>
   );
 };
