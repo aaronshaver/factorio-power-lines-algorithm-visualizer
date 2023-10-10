@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Controls = ({ }) => {
   return (
     <div className="ControlsWrapper" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>

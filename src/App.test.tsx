@@ -42,9 +42,12 @@ test('grid with poles contains poles', () => {
 test('adding a pole where one already exists does not add second pole to grid', () => {
   const grid = new Grid()
   const pole1 = new Pole(0, 0)
-  grid.addPole(pole1)
+  const addPole1 = grid.addPole(pole1)
+  expect(addPole1).toBeTruthy();
+
   const pole2 = new Pole(0, 0) // intentional same location
-  grid.addPole(pole2)
+  const addPole2 = grid.addPole(pole2)
+  expect(addPole2).toBeFalsy();
 
   expect(grid.getPoles().length).toBe(1);
 });

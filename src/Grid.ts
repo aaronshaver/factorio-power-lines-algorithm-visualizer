@@ -11,15 +11,16 @@ class Grid {
         this.poles = []
     }
 
-    addPole(pole: Pole) {
+    addPole(pole: Pole): boolean {
         // check for existing pole at proposed new pole's location
         for (let existing_pole of this.poles) {
             if (existing_pole.x === pole.x && existing_pole.y === pole.y) {
-                return
+                return false
             }
         }
 
         this.poles.push(pole)
+        return true
     }
 
     getPoles() {
