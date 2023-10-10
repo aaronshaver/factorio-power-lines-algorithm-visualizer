@@ -38,16 +38,23 @@ const Canvas: React.FC<CanvasProps> = ({ grid }) => {
         }
     }, [grid]);
 
-    const drawNewPole = (pole: Pole) => {
-        const drawX = pole.x * squareSize + squareSize * 0.25
-        const drawY = pole.y * squareSize + squareSize * 0.25
-        const poleSize = squareSize * 0.5
+    const drawPoles = () => {
+        for (let pole of grid.getPoles()) {
+            const drawX = pole.x * squareSize + squareSize * 0.25
+            const drawY = pole.y * squareSize + squareSize * 0.25
+            const poleSize = squareSize * 0.5
 
-        if (canvasRef.current) {
-            const context = canvasRef.current.getContext('2d');
-            if (context) {
-                context.fillStyle = "red";
-                context.fillRect(drawX, drawY, poleSize, poleSize);
+            if (canvasRef.current) {
+                const context = canvasRef.current.getContext('2d');
+                if (context) {
+                    if (pole.connections.length > 0) {
+                        context.fillStyle = "#00ff00";
+                    }
+                    else {
+                        context.fillStyle = "#ff0000";
+                    }
+                    context.fillRect(drawX, drawY, poleSize, poleSize);
+                }
             }
         }
     }
@@ -65,7 +72,7 @@ const Canvas: React.FC<CanvasProps> = ({ grid }) => {
         const addedPole = grid.addPole(pole)
 
         if (addedPole) {
-            drawNewPole(pole)
+            drawPoles()
         }
     }
 

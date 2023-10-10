@@ -62,3 +62,25 @@ test('clear grid poles reduces pole count to zero', () => {
   grid.clearPoles()
   expect(grid.getPoles().length).toBe(0);
 });
+
+test('after adding a second pole, they both have connections to each other', () => {
+  // add first pole
+  const grid = new Grid()
+  const pole1 = new Pole(0, 0)
+  const addPole1 = grid.addPole(pole1)
+  expect(addPole1).toBeTruthy();
+  expect(grid.getPoles().length).toBe(1);
+  expect(pole1.connections.length).toBe(0)
+
+  // add second pole
+  const pole2 = new Pole(1, 1)
+  const addPole2 = grid.addPole(pole2)
+  expect(addPole2).toBeTruthy();
+  expect(grid.getPoles().length).toBe(2);
+
+  // main asserts
+  expect(pole1.connections.length).toBe(1)
+  expect(pole1.connections[0]).toBe(pole2)
+  expect(pole2.connections.length).toBe(1)
+  expect(pole2.connections[0]).toBe(pole1)
+});
