@@ -14,8 +14,15 @@ const Controls = ({ }) => {
       <div className="radioWrapper">
         <label>
             {/* <input type="radio" value="No diagonals" checked={algo === 'No diagonals'} onChange={handleAlgoChange} disabled={isProcessing} /> */}
-            <input type="radio" value="No diagonals" />
-            No diagonals
+            <input type="radio" value="Maximum without diagonals" />
+            Maximum without diagonals
+        </label>
+      </div>
+      <div className="radioWrapper">
+        <label>
+            {/* <input type="radio" value="No diagonals" checked={algo === 'No diagonals'} onChange={handleAlgoChange} disabled={isProcessing} /> */}
+            <input type="radio" value="Minimum; prefer no diagonals" />
+            Minimum; prefer no diagonals
         </label>
       </div>
       {/* <button onClick={handlePlay} disabled={isProcessing}>Play</button> */}

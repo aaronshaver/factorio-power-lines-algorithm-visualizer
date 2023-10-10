@@ -1,9 +1,11 @@
 import React, { useRef, useEffect } from 'react';
+import Grid from '../Grid'
 
-const gridSize = 16;
-const squareSize = 50;
-const backgroundColor = '#808080'; // medium gray
-const borderColor = '#404040'; // dark gray
+const grid = new Grid()
+const gridSize = grid.size;
+const squareSize = 40;
+const backgroundColor = '#808080'
+const borderColor = '#404040'
 
 const Canvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);

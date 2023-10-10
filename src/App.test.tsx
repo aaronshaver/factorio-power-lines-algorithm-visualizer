@@ -14,7 +14,9 @@ test('renders algorithm radio buttons texts', () => {
   expect(text).toBeInTheDocument();
   text = screen.getByText(/All/i);
   expect(text).toBeInTheDocument();
-  text = screen.getByText(/No diagonals/i);
+  text = screen.getByText(/Maximum without diagonals/i);
+  expect(text).toBeInTheDocument();
+  text = screen.getByText(/Minimum; prefer no diagonals/i);
   expect(text).toBeInTheDocument();
 });
 
