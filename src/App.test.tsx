@@ -4,6 +4,6 @@ import App from './App';
 
 test('renders learn react link', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const introText = screen.getByText(/Factorio-style Power Line Algorithm Visualizer/i);
+  expect(introText).toBeInTheDocument();
 });
