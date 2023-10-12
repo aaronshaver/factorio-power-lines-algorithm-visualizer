@@ -115,7 +115,7 @@ test('poles become connected with third pole added in middle', () => {
   expect(pole1.connections.length).toBe(0)
 
   // add second pole
-  const pole2 = new Pole(4, 4)
+  const pole2 = new Pole(5, 5)
   const addPole2 = grid.addPole(pole2)
   expect(addPole2).toBeTruthy();
   expect(grid.getPoles().length).toBe(2);
