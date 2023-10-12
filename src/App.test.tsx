@@ -133,3 +133,48 @@ test('poles become connected with third pole added in middle', () => {
   expect(pole2.connections.length).toBe(1)
   expect(pole3.connections.length).toBe(2) // middle pole
 });
+
+test('no pole has more than five connections to other poles', () => {
+  const grid = new Grid()
+  const poles = []
+
+  /*
+  create poles in an arrangment like:
+  o..o
+  ...o
+  ...o
+  oooo
+
+  such that the pole at 0,0 could have seven connections if there were no logic
+  limiting the connections
+  */
+  var pole = new Pole(0, 0)
+  grid.addPole(pole)
+  poles.push(pole)
+  pole = new Pole(3, 0)
+  grid.addPole(pole)
+  poles.push(pole)
+  pole = new Pole(3, 1)
+  grid.addPole(pole)
+  poles.push(pole)
+  pole = new Pole(3, 2)
+  grid.addPole(pole)
+  poles.push(pole)
+  pole = new Pole(3, 3)
+  grid.addPole(pole)
+  poles.push(pole)
+  pole = new Pole(2, 3)
+  grid.addPole(pole)
+  poles.push(pole)
+  pole = new Pole(1, 3)
+  grid.addPole(pole)
+  poles.push(pole)
+  pole = new Pole(0, 3)
+  grid.addPole(pole)
+  poles.push(pole)
+
+  for (let pole of poles) {
+    expect(pole.connections.length).toBeLessThanOrEqual(5)
+  }
+
+});

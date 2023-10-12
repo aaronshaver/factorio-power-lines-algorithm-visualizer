@@ -14,8 +14,8 @@ class Grid {
     }
 
     addPole(pole: Pole): boolean {
-        // check for existing Pole at proposed new Pole's location
         for (let existing_pole of this.poles) {
+            // prevent adding pole where one already exists
             if (existing_pole.x === pole.x && existing_pole.y === pole.y) {
                 return false
             }
@@ -23,6 +23,10 @@ class Grid {
 
         // connect Poles if applicable
         for (let existing_pole of this.poles) {
+            // allow a maximum of five connections to other poles
+            if (existing_pole.connections.length == 5) {
+                continue
+            }
             const distance = Math.sqrt(Math.pow(existing_pole.x - pole.x, 2) + Math.pow(existing_pole.y - pole.y, 2));
 
             if (distance <= this.maxDistance) {
