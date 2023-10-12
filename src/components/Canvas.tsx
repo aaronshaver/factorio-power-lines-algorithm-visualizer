@@ -83,7 +83,7 @@ const Canvas: React.FC<CanvasProps> = ({ grid }) => {
                         context.beginPath();
                         context.moveTo(startX, startY);
                         // control point for adding a slight curve
-                        const curveAmount = 90
+                        const curveAmount = 50
                         const controlX = (startX + endX) / 2;
                         const controlY = (startY + endY) / 2 + curveAmount
                         context.quadraticCurveTo(controlX, controlY, endX, endY)

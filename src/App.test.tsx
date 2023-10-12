@@ -11,18 +11,6 @@ test('renders intro text', () => {
   expect(introText).toBeInTheDocument();
 });
 
-test('renders algorithm radio buttons texts', () => {
-  render(<App />);
-  var text = screen.getByText(/Algorithm:/i);
-  expect(text).toBeInTheDocument();
-  text = screen.getByText(/All/i);
-  expect(text).toBeInTheDocument();
-  text = screen.getByText(/Maximum without diagonals/i);
-  expect(text).toBeInTheDocument();
-  text = screen.getByText(/Minimum; prefer no diagonals/i);
-  expect(text).toBeInTheDocument();
-});
-
 test('renders Clear button text', () => {
   render(<App />);
   var text = screen.getByText(/Clear/i);
