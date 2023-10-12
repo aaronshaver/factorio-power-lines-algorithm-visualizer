@@ -2,8 +2,11 @@ import React, { useRef, useEffect } from 'react';
 import Pole from '../Pole'
 import Grid from '../Grid'
 
-const backgroundColor = '#404040'
-const borderColor = '#808080'
+const BACKGROUND_COLOR = '#4a4a4a'  // Dark gray
+const BORDER_COLOR = '#626262'  // Lighter gray
+const POLE_UNCONNECTED_COLOR = '#e8474c'  // Muted Red
+const POLE_CONNECTED_COLOR = '#6a8eb2'  // Slate Blue
+const POWER_LINE_COLOR = '#e8c547'  // Muted Gold
 
 type CanvasProps = {
     grid: Grid
@@ -21,10 +24,10 @@ const Canvas: React.FC<CanvasProps> = ({ grid }) => {
                 const posX = x * squareSize;
                 const posY = y * squareSize;
 
-                context.fillStyle = backgroundColor;
+                context.fillStyle = BACKGROUND_COLOR;
                 context.fillRect(posX, posY, squareSize, squareSize);
 
-                context.strokeStyle = borderColor;
+                context.strokeStyle = BORDER_COLOR;
                 context.strokeRect(posX, posY, squareSize, squareSize);
             }
         }
@@ -50,9 +53,9 @@ const Canvas: React.FC<CanvasProps> = ({ grid }) => {
 
                     // green color for Poles with connections, otherwise red
                     if (pole.connections.length > 0) {
-                        context.fillStyle = "#00ff00";
+                        context.fillStyle = POLE_CONNECTED_COLOR;
                     } else {
-                        context.fillStyle = "#ff0000";
+                        context.fillStyle = POLE_UNCONNECTED_COLOR;
                     }
                     context.fillRect(drawX, drawY, poleSize, poleSize);
                 }
@@ -65,7 +68,7 @@ const Canvas: React.FC<CanvasProps> = ({ grid }) => {
         if (canvasRef.current) {
             const context = canvasRef.current.getContext('2d')
             if (context) {
-                context.strokeStyle = "#0000ff"; // power line color
+                context.strokeStyle = POWER_LINE_COLOR
                 context.lineWidth = 3 // power line thickness
                 for (let poleFrom of poles) {
                     // if no connection, skip to next pole
@@ -80,7 +83,7 @@ const Canvas: React.FC<CanvasProps> = ({ grid }) => {
                         context.beginPath();
                         context.moveTo(startX, startY);
                         // control point for adding a slight curve
-                        const curveAmount = 10
+                        const curveAmount = 90
                         const controlX = (startX + endX) / 2;
                         const controlY = (startY + endY) / 2 + curveAmount
                         context.quadraticCurveTo(controlX, controlY, endX, endY)
