@@ -2,9 +2,9 @@ import Pole from './Pole'
 
 class Grid {
     private poles: Pole[]
-    size: number
-    squareSize: number
-    maxDistance: number
+    readonly size: number
+    readonly squareSize: number
+    readonly maxDistance: number
 
     constructor() {
         this.size = 16
