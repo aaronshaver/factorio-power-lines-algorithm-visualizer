@@ -7,7 +7,7 @@ const Controls: React.FC<ControlsProps> = ({ clearGrid }) => {
         <div className="ControlsWrapper" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
             <div className="dropdownWrapper" style={{ marginTop: '10px', marginBottom: '10px' }}>
                 <label htmlFor="algorithm" style={{ marginRight: '8px' }}>Algorithm:</label>
-                <select id="algorithm" name="algorithm" defaultValue="Maximal">
+                <select id="algorithm" name="algorithm" defaultValue="Maximal" onChange={clearGrid}>
                     <option value="Maximal">Maximal</option>
                     <option value="Maximal (avoid diagonal)">Maximal (avoid diagonal)</option>
                     <option value="Minimal">Minimal</option>
