@@ -7,7 +7,7 @@ class Grid {
     readonly maxDistance: number
 
     constructor() {
-        this.size = 16
+        this.size = 18
         this.squareSize = 40
         this.maxDistance = 7
         this.poles = []
