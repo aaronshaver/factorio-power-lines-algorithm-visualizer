@@ -9,7 +9,7 @@ class Grid {
     constructor() {
         this.size = 16
         this.squareSize = 40
-        this.maxDistance = 4
+        this.maxDistance = 7
         this.poles = []
     }
 
