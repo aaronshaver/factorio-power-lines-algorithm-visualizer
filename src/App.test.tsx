@@ -18,7 +18,7 @@ test('renders Clear button text', () => {
 });
 
 test('grid with poles contains poles', () => {
-  const grid = new Grid()
+  const grid = new Grid(5, 7)
   const pole1 = new Pole(0, 0)
   grid.addPole(pole1)
   const pole2 = new Pole(0, 1)
@@ -28,7 +28,7 @@ test('grid with poles contains poles', () => {
 });
 
 test('adding a pole where one already exists does not add second pole to grid', () => {
-  const grid = new Grid()
+  const grid = new Grid(5, 7)
   const pole1 = new Pole(0, 0)
   const addPole1 = grid.addPole(pole1)
   expect(addPole1).toBeTruthy();
@@ -41,7 +41,7 @@ test('adding a pole where one already exists does not add second pole to grid', 
 });
 
 test('clear grid poles reduces pole count to zero', () => {
-  const grid = new Grid()
+  const grid = new Grid(5, 7)
   const pole1 = new Pole(0, 0)
   const addPole1 = grid.addPole(pole1)
   expect(addPole1).toBeTruthy();
@@ -53,7 +53,7 @@ test('clear grid poles reduces pole count to zero', () => {
 
 test('after adding a second pole, they both have connections to each other', () => {
   // add first pole
-  const grid = new Grid()
+  const grid = new Grid(5, 7)
   const pole1 = new Pole(0, 0)
   const addPole1 = grid.addPole(pole1)
   expect(addPole1).toBeTruthy();
@@ -75,7 +75,7 @@ test('after adding a second pole, they both have connections to each other', () 
 
 test('pole added past max distance does not create connections', () => {
   // add first pole
-  const grid = new Grid()
+  const grid = new Grid(5, 7)
   const pole1 = new Pole(0, 0)
   const addPole1 = grid.addPole(pole1)
   expect(addPole1).toBeTruthy();
@@ -95,7 +95,7 @@ test('pole added past max distance does not create connections', () => {
 
 test('poles become connected with third pole added in middle', () => {
   // add first pole
-  const grid = new Grid()
+  const grid = new Grid(5, 7)
   const pole1 = new Pole(0, 0)
   const addPole1 = grid.addPole(pole1)
   expect(addPole1).toBeTruthy();
@@ -123,7 +123,7 @@ test('poles become connected with third pole added in middle', () => {
 });
 
 test('no pole has more than five connections to other poles', () => {
-  const grid = new Grid()
+  const grid = new Grid(5, 7)
   const poles = []
 
   /*

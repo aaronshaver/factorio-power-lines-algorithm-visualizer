@@ -5,17 +5,23 @@ import Canvas from './components/Canvas';
 import Grid from './Grid'
 
 function App() {
-  const [grid, setGrid] = useState(new Grid())
+  const MAX_CONNECTIONS = 5
+  const MAX_DISTANCE = 7
+  const [grid, setGrid] = useState(new Grid(MAX_CONNECTIONS, MAX_DISTANCE))
 
   const clearGrid = () => {
     grid.clearPoles()
-    setGrid(new Grid())
+    setGrid(new Grid(MAX_CONNECTIONS, MAX_DISTANCE))
   }
 
   return (
     <div className="App">
       <p><b>Factorio-style Power Line Algorithm Visualizer</b></p>
-      <Controls clearGrid={clearGrid} />
+      <Controls
+        clearGrid={clearGrid}
+        MAX_CONNECTIONS={MAX_CONNECTIONS}
+        MAX_DISTANCE={MAX_DISTANCE}
+      />
       <Canvas grid={grid} />
     </div>
   );

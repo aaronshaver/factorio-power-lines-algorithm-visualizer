@@ -13,7 +13,7 @@ type CanvasProps = {
 }
 
 const Canvas: React.FC<CanvasProps> = ({ grid }) => {
-    const gridSize = grid.size;
+    const gridSize = grid.GRID_SIZE;
     const squareSize = grid.squareSize;
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
 

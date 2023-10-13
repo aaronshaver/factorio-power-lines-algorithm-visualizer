@@ -2,14 +2,16 @@ import Pole from './Pole'
 
 class Grid {
     private poles: Pole[]
-    readonly size: number
     readonly squareSize: number
-    readonly maxDistance: number
+    readonly MAX_CONNECTIONS: number
+    readonly MAX_DISTANCE: number
+    readonly GRID_SIZE: number
 
-    constructor() {
-        this.size = 18
+    constructor(MAX_CONNECTIONS: number, MAX_DISTANCE: number) {
+        this.MAX_CONNECTIONS = MAX_CONNECTIONS
+        this.MAX_DISTANCE = MAX_DISTANCE
         this.squareSize = 40
-        this.maxDistance = 7
+        this.GRID_SIZE = 18
         this.poles = []
     }
 
@@ -24,12 +26,12 @@ class Grid {
         // connect Poles if applicable
         for (let existing_pole of this.poles) {
             // allow a maximum of five connections to other poles
-            if (existing_pole.connections.length == 5) {
+            if (existing_pole.connections.length == this.MAX_CONNECTIONS) {
                 continue
             }
             const distance = Math.sqrt(Math.pow(existing_pole.x - pole.x, 2) + Math.pow(existing_pole.y - pole.y, 2));
 
-            if (distance <= this.maxDistance) {
+            if (distance <= this.MAX_DISTANCE) {
                 existing_pole.connections.push(pole)
                 pole.connections.push(existing_pole)
             }
