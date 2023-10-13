@@ -43,14 +43,14 @@ class Grid {
                 continue
             }
 
-            if (this.algorithm == "Minimal") {
+            if (this.algorithm == "Minimal" || this.algorithm == "Minimal (avoid diagonals)") {
                 if (pole.connections.length > 0) {
                     break
                 }
             }
 
             if (overrideDiagonalCheck === false) {
-                if (this.algorithm == "Maximal (avoid diagonals)") {
+                if (this.algorithm == "Maximal (avoid diagonals)" || this.algorithm == "Minimal (avoid diagonals)") {
                     if (existing_pole.x != pole.x && existing_pole.y != pole.y) {
                         continue
                     }

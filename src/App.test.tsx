@@ -249,6 +249,61 @@ test('Minimal creates exactly three wires for grid of four nodes', () => {
   count = count + pole1.connections.length
   count = count + pole2.connections.length
   count = count + pole3.connections.length
-  expect(count).toBe(6) // doubled because connections are added bi-directionally
+  expect(count).toBe(6) // three wires, but doubled because connections are added bi-directionally
+});
 
+test('Minimal (avoid diagonals) does not create diagonals for [0,0 2,0 2,2]', () => {
+  const grid = new Grid(5, 7, 'Minimal (avoid diagonals)')
+  const poles = []
+
+  /*
+  create poles in an arrangment like:
+  o.o
+  ...
+  ..o
+
+  such that the poles between 0,0 and 2,2 could have a diagonal connection if
+  the algorithm were not working
+  */
+  const pole1 = new Pole(0, 0)
+  grid.addPole(pole1)
+  const pole2 = new Pole(2, 0)
+  grid.addPole(pole2)
+  const pole3 = new Pole(2, 2)
+  grid.addPole(pole3)
+
+  expect(pole1.connections.length).toBe(1)
+  expect(pole2.connections.length).toBe(2)
+  expect(pole3.connections.length).toBe(1)
+  expect(pole1.connections[0].x).toBe(2)
+  expect(pole1.connections[0].y).toBe(0)
+  expect(pole3.connections[0].x).toBe(2)
+  expect(pole3.connections[0].y).toBe(0)
+});
+
+test('Minimal (avoid diagonals) does not create diagonals for [0,0 2,0 1,1]', () => {
+  const grid = new Grid(5, 7, 'Minimal (avoid diagonals)')
+  const poles = []
+
+  /*
+  create poles in an arrangment like:
+  o.o
+  ...
+  ..o
+
+  such that the poles between 0,0 and 2,2 could have a diagonal connection if
+  the algorithm were not working
+  */
+  const pole0 = new Pole(0, 0)
+  grid.addPole(pole0)
+  const pole1 = new Pole(2, 0)
+  grid.addPole(pole1)
+  const pole2 = new Pole(1, 1)
+  grid.addPole(pole2)
+
+  var count = 0
+  count = count + pole0.connections.length
+  count = count + pole1.connections.length
+  count = count + pole2.connections.length
+  expect(count).toBe(4) // two wires, but doubled because connections are added bi-directionally
 });
