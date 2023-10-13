@@ -7,7 +7,7 @@ Visualizes Factorio-style power line connection algorithms using TypeScript, Can
 I love Factorio, a building and automation game. But one thing that has long bugged me about it
 is that electric pole wire connections are messy by default. For example:
 
-[screenshot]
+![image](factorio_screenshot.webp)
 
 I'm not the only one who has been bothered by it. Other people have made mods to address the issue,
 like: https://mods.factorio.com/mod/rewire-tool.
