@@ -4,11 +4,28 @@ Visualizes Factorio-style power line connection algorithms using TypeScript, Can
 
 ## Why?
 
-foo
+I love Factorio, a building and automation game. But one thing that has long bugged me about it
+is that electric pole wire connections are messy by default. For example:
+
+[screenshot]
+
+I'm not the only one who has been bothered by it. Other people have made mods to address the issue,
+like: https://mods.factorio.com/mod/rewire-tool.
+
+Furthermore, I've been doing a lot of LeetCode lately as I prepare for job interviews. So these
+two things combined in my mind to make me wonder: how hard would it be to try other ways of connecting
+the power poles to try to avoid unnecessary wiring that leads to a mess?
+
+This project is the answer to that question. I challenged myself to use TypeScript, the Canvas HTML
+element, React, and my own algorithm thinking to produce an interactive tool to visualize different
+ways of connecting power poles.
+
+I took a lot of inspiration from the game, including a limit of five connections per pole,
+and a maximum of seven "tiles" of distance between connected poles.
 
 ## Screenshot
 
-foo
+[screenshot!]
 
 ## Features
 
