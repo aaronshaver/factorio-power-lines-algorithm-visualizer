@@ -25,45 +25,38 @@ class Grid {
             }
         }
 
-        // connect Poles, if applicable
+        this.connectPoles(pole)
+        if (pole.connections.length === 0) {
+            this.connectPoles(pole, true)
+        }
+
+        // add new Pole to Grid
+        this.poles.push(pole)
+        return true
+    }
+
+    private connectPoles(pole: Pole, overrideDiagonalCheck: boolean = false) {
         for (let existing_pole of this.poles) {
             // skip if a target Pole already has the maximum number of connections
             if (existing_pole.connections.length == this.MAX_CONNECTIONS) {
                 continue
             }
 
-            if (this.algorithm == "Maximal (avoid diagonals)") {
-                if (existing_pole.x != pole.x && existing_pole.y != pole.y) {
-                    continue
+            if (overrideDiagonalCheck === false) {
+                if (this.algorithm == "Maximal (avoid diagonals)") {
+                    if (existing_pole.x != pole.x && existing_pole.y != pole.y) {
+                        continue
+                    }
                 }
             }
 
             // enforce the maximum distance; don't connect if too far
-            const distance = Math.sqrt(Math.pow(existing_pole.x - pole.x, 2) + Math.pow(existing_pole.y - pole.y, 2));
+            const distance = Math.sqrt(Math.pow(existing_pole.x - pole.x, 2) + Math.pow(existing_pole.y - pole.y, 2))
             if (distance <= this.MAX_DISTANCE) {
                 existing_pole.connections.push(pole)
                 pole.connections.push(existing_pole)
             }
         }
-        if (pole.connections.length === 0) {
-            for (let existing_pole of this.poles) {
-                // skip if a target Pole already has the maximum number of connections
-                if (existing_pole.connections.length == this.MAX_CONNECTIONS) {
-                    continue
-                }
-
-                // enforce the maximum distance; don't connect if too far
-                const distance = Math.sqrt(Math.pow(existing_pole.x - pole.x, 2) + Math.pow(existing_pole.y - pole.y, 2));
-                if (distance <= this.MAX_DISTANCE) {
-                    existing_pole.connections.push(pole)
-                    pole.connections.push(existing_pole)
-                }
-            }
-        }
-
-        // add new Pole to Grid
-        this.poles.push(pole)
-        return true
     }
 
     getPoles() {
