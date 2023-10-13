@@ -221,3 +221,34 @@ test('Maximal (avoid diagonal) will create diagonal if it has to', () => {
   expect(pole2.connections[0].x).toBe(0)
   expect(pole2.connections[0].y).toBe(0)
 });
+
+test('Minimal creates exactly three wires for grid of four nodes', () => {
+  const grid = new Grid(5, 7, 'Minimal')
+  const poles = []
+
+  /*
+  create poles in an arrangment like:
+  o.o
+  ...
+  o.o
+
+  such that the poles should have exactly three wires; there are several
+  way to get those three
+  */
+  const pole0 = new Pole(0, 0)
+  grid.addPole(pole0)
+  const pole1 = new Pole(2, 0)
+  grid.addPole(pole1)
+  const pole2 = new Pole(2, 2)
+  grid.addPole(pole2)
+  const pole3 = new Pole(0, 2)
+  grid.addPole(pole3)
+
+  var count = 0
+  count = count + pole0.connections.length
+  count = count + pole1.connections.length
+  count = count + pole2.connections.length
+  count = count + pole3.connections.length
+  expect(count).toBe(6) // doubled because connections are added bi-directionally
+
+});

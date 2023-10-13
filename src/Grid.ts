@@ -27,6 +27,7 @@ class Grid {
 
         this.connectPoles(pole)
         if (pole.connections.length === 0) {
+            // if our new pole still isn't connect, try again by relaxing the diagonals restriction
             this.connectPoles(pole, true)
         }
 
@@ -40,6 +41,12 @@ class Grid {
             // skip if a target Pole already has the maximum number of connections
             if (existing_pole.connections.length == this.MAX_CONNECTIONS) {
                 continue
+            }
+
+            if (this.algorithm == "Minimal") {
+                if (pole.connections.length > 0) {
+                    break
+                }
             }
 
             if (overrideDiagonalCheck === false) {
