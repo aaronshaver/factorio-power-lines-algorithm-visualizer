@@ -17,6 +17,10 @@ class Grid {
         this.algorithm = algorithm
     }
 
+    // note: the time complexity of this function is no worse than O(n); there
+    // may be some tweaks that could be made, but it is linear with relation to
+    // the size of the input data, which in this case is the number of poles on
+    // the grid
     addPole(pole: Pole): boolean {
         for (let existing_pole of this.poles) {
             // prevent adding pole where one already exists
