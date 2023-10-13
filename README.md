@@ -5,7 +5,7 @@ Visualizes Factorio-style power line connection algorithms using TypeScript, Can
 ## Why?
 
 I love Factorio, a building and automation game. But one thing that has long bugged me about it
-is that electric pole wire connections are messy by default. For example:
+is that electric pole wire connections are generated in a way that leads to a mess. For example:
 
 ![image](factorio_screenshot.webp)
 
