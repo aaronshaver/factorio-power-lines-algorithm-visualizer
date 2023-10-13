@@ -9,9 +9,8 @@ function App() {
   const MAX_DISTANCE = 7
   const [grid, setGrid] = useState(new Grid(MAX_CONNECTIONS, MAX_DISTANCE))
 
-  const clearGrid = () => {
-    grid.clearPoles()
-    setGrid(new Grid(MAX_CONNECTIONS, MAX_DISTANCE))
+  const clearGrid = (algorithm: string = "Maximal") => {
+    setGrid(new Grid(MAX_CONNECTIONS, MAX_DISTANCE, algorithm))
   }
 
   return (

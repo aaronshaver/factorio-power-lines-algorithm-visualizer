@@ -166,3 +166,32 @@ test('no pole has more than five connections to other poles', () => {
   }
 
 });
+
+test('Maximal (avoid diagonal) does not create diagonal connections', () => {
+  const grid = new Grid(5, 7, 'Maximal (avoid diagonals)')
+  const poles = []
+
+  /*
+  create poles in an arrangment like:
+  o.o
+  ...
+  ..o
+
+  such that the poles between 0,0 and 2,2 would have a diagonal connection if
+  the algorithm were not working
+  */
+  const pole1 = new Pole(0, 0)
+  grid.addPole(pole1)
+  const pole2 = new Pole(2, 0)
+  grid.addPole(pole2)
+  const pole3 = new Pole(2, 2)
+  grid.addPole(pole3)
+
+  expect(pole1.connections.length).toBe(1)
+  expect(pole2.connections.length).toBe(2)
+  expect(pole3.connections.length).toBe(1)
+  expect(pole1.connections[0].x).toBe(2)
+  expect(pole1.connections[0].y).toBe(0)
+  expect(pole3.connections[0].x).toBe(2)
+  expect(pole3.connections[0].y).toBe(0)
+});

@@ -6,13 +6,15 @@ class Grid {
     readonly MAX_CONNECTIONS: number
     readonly MAX_DISTANCE: number
     readonly GRID_SIZE: number
+    readonly algorithm: string
 
-    constructor(MAX_CONNECTIONS: number, MAX_DISTANCE: number) {
+    constructor(MAX_CONNECTIONS: number, MAX_DISTANCE: number, algorithm: string = "Maximal") {
         this.MAX_CONNECTIONS = MAX_CONNECTIONS
         this.MAX_DISTANCE = MAX_DISTANCE
         this.squareSize = 40
         this.GRID_SIZE = 18
         this.poles = []
+        this.algorithm = algorithm
     }
 
     addPole(pole: Pole): boolean {
