@@ -25,17 +25,39 @@ class Grid {
             }
         }
 
-        // connect Poles if applicable
+        // connect Poles, if applicable
         for (let existing_pole of this.poles) {
-            // allow a maximum of five connections to other poles
+            // skip if a target Pole already has the maximum number of connections
             if (existing_pole.connections.length == this.MAX_CONNECTIONS) {
                 continue
             }
-            const distance = Math.sqrt(Math.pow(existing_pole.x - pole.x, 2) + Math.pow(existing_pole.y - pole.y, 2));
 
+            if (this.algorithm == "Maximal (avoid diagonals)") {
+                if (existing_pole.x != pole.x && existing_pole.y != pole.y) {
+                    continue
+                }
+            }
+
+            // enforce the maximum distance; don't connect if too far
+            const distance = Math.sqrt(Math.pow(existing_pole.x - pole.x, 2) + Math.pow(existing_pole.y - pole.y, 2));
             if (distance <= this.MAX_DISTANCE) {
                 existing_pole.connections.push(pole)
                 pole.connections.push(existing_pole)
+            }
+        }
+        if (pole.connections.length === 0) {
+            for (let existing_pole of this.poles) {
+                // skip if a target Pole already has the maximum number of connections
+                if (existing_pole.connections.length == this.MAX_CONNECTIONS) {
+                    continue
+                }
+
+                // enforce the maximum distance; don't connect if too far
+                const distance = Math.sqrt(Math.pow(existing_pole.x - pole.x, 2) + Math.pow(existing_pole.y - pole.y, 2));
+                if (distance <= this.MAX_DISTANCE) {
+                    existing_pole.connections.push(pole)
+                    pole.connections.push(existing_pole)
+                }
             }
         }
 

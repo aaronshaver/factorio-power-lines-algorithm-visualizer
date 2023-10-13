@@ -195,3 +195,29 @@ test('Maximal (avoid diagonal) does not create diagonal connections', () => {
   expect(pole3.connections[0].x).toBe(2)
   expect(pole3.connections[0].y).toBe(0)
 });
+
+test('Maximal (avoid diagonal) will create diagonal if it has to', () => {
+  const grid = new Grid(5, 7, 'Maximal (avoid diagonals)')
+  const poles = []
+
+  /*
+  create poles in an arrangment like:
+  o..
+  ...
+  ..o
+
+  such that the poles between 0,0 and 2,2 should have a diagonal connection if
+  the algorithm is working
+  */
+  const pole1 = new Pole(0, 0)
+  grid.addPole(pole1)
+  const pole2 = new Pole(2, 2)
+  grid.addPole(pole2)
+
+  expect(pole1.connections.length).toBe(1)
+  expect(pole2.connections.length).toBe(1)
+  expect(pole1.connections[0].x).toBe(2)
+  expect(pole1.connections[0].y).toBe(2)
+  expect(pole2.connections[0].x).toBe(0)
+  expect(pole2.connections[0].y).toBe(0)
+});
