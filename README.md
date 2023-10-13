@@ -1,6 +1,7 @@
 # Factorio power lines algorithm visualizer
 
-Visualizes Factorio-style power line connection algorithms using TypeScript, Canvas, and React
+Web app that visualizes and imagines Factorio-style power line connections if they could
+use new, alternate algorithms to connect
 
 ## Why?
 
