@@ -10,6 +10,15 @@ foo
 
 foo
 
+## Features
+
+* Choose among four different algorithms, which will change how power lines are connected between the pole network
+* To see power lines easier among a dense tangle of them, each power line connects with a slight "sag" and curve -- just like power lines in the real world!
+* Place up to 324 power poles
+* Each pole has a central "connector" object in dark blue that further helps clarify and reduce visual clutter
+* Unconnected power pole nodes show up as red squares to indicate they aren't powered yet
+* Clear the grid at any time to start fresh
+
 ## Setup
 
 1. Install Node.js: https://nodejs.org/en
