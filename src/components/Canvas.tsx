@@ -95,6 +95,25 @@ const Canvas: React.FC<CanvasProps> = ({ grid }) => {
         }
     }
 
+    const drawConnectedPoleAnchors = () => {
+        if (canvasRef.current) {
+            const context = canvasRef.current.getContext('2d');
+            if (context) {
+                const circleRadius = squareSize * 0.1;  // Set the circle size
+                context.fillStyle = '#00008B';  // Dark blue color
+                for (let pole of grid.getPoles()) {
+                    if (pole.connections.length > 0) {
+                        const drawX = pole.x * squareSize + squareSize * 0.5;
+                        const drawY = pole.y * squareSize + squareSize * 0.5;
+                        context.beginPath();
+                        context.arc(drawX, drawY, circleRadius, 0, 2 * Math.PI);
+                        context.fill();
+                    }
+                }
+            }
+        }
+    };
+
     const handleClick = (event: React.MouseEvent<HTMLCanvasElement>) => {
         // get the click location, taking canvas offset (from window) into account
         //
@@ -115,6 +134,7 @@ const Canvas: React.FC<CanvasProps> = ({ grid }) => {
         if (addedPole) {
             drawPoles()
             drawPowerLines()
+            drawConnectedPoleAnchors()
         }
     }
 
