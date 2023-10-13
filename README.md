@@ -25,7 +25,7 @@ and a maximum of seven "tiles" of distance between connected poles.
 
 ## Screenshot
 
-[screenshot!]
+![image](app_screenshot.png)
 
 ## Features
 
