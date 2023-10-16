@@ -15,8 +15,8 @@ like: https://mods.factorio.com/mod/rewire-tool.
 
 Furthermore, I'd been doing a lot of LeetCode as I prepare for job interviews, so algorithm thinking 
 and puzzle-solving had been on my mind. So these
-two things -- bothered by this issue in the game and doing lots of algorithm code -- combined in my mind to spart the project. I wondered, how hard would it be to try other ways of connecting
-the power poles to avoid unnecessary wiring that leads to these messes?
+two things -- bothered by this issue in the game and doing lots of algorithm code -- combined in my mind to spart the project. I wondered, **how hard would it be to try other ways of connecting
+the power poles to avoid unnecessary wiring that leads to these messes?**
 
 So this project is the answer to that question. I challenged myself to use TypeScript, the Canvas HTML
 element, React, and my own algorithm thinking to produce an interactive tool to visualize different
