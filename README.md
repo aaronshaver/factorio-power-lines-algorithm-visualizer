@@ -13,11 +13,12 @@ is that electric pole wire connections are generated in a way that leads to a me
 I'm not the only one who has been bothered by it. Other people have made mods to address the issue,
 like: https://mods.factorio.com/mod/rewire-tool.
 
-Furthermore, I've been doing a lot of LeetCode lately as I prepare for job interviews. So these
-two things combined in my mind to make me wonder: how hard would it be to try other ways of connecting
-the power poles to try to avoid unnecessary wiring that leads to a mess?
+Furthermore, I'd been doing a lot of LeetCode as I prepare for job interviews, so algorithm thinking 
+and puzzle-solving had been on my mind. So these
+two things -- bothered by this issue in the game and doing lots of algorithm code -- combined in my mind to spart the project. I wondered, how hard would it be to try other ways of connecting
+the power poles to avoid unnecessary wiring that leads to these messes?
 
-This project is the answer to that question. I challenged myself to use TypeScript, the Canvas HTML
+So this project is the answer to that question. I challenged myself to use TypeScript, the Canvas HTML
 element, React, and my own algorithm thinking to produce an interactive tool to visualize different
 ways of connecting power poles.
 
