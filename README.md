@@ -3,7 +3,7 @@
 Web app that visualizes and imagines Factorio-style power line connections if they could
 use new, alternate algorithms to connect
 
-## Why?
+## Why? What is this thing?
 
 I love Factorio, a building and automation game. But one thing that has long bugged me about it
 is that electric pole wire connections are generated in a way that leads to a mess. For example:
