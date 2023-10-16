@@ -51,7 +51,6 @@ const Canvas: React.FC<CanvasProps> = ({ grid }) => {
                     const drawY = pole.y * squareSize + squareSize * 0.25;
                     const poleSize = squareSize * 0.5;
 
-                    // green color for Poles with connections, otherwise red
                     if (pole.connections.length > 0) {
                         context.fillStyle = POLE_CONNECTED_COLOR;
                     } else {
@@ -124,7 +123,7 @@ const Canvas: React.FC<CanvasProps> = ({ grid }) => {
         const canvasX = event.clientX - rect.left;
         const canvasY = event.clientY - rect.top;
 
-        // convert to our 16x16 grid 0-indexed locations
+        // convert from pixels to our 0-indexed grid locations
         const x = Math.floor(canvasX / squareSize)
         const y = Math.floor(canvasY / squareSize)
 

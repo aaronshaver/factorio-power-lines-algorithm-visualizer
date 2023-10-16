@@ -35,6 +35,7 @@ and a maximum of seven "tiles" of distance between connected poles.
 * Place up to 324 power poles
 * Each pole has a central "connector" object in dark blue that further helps clarify and reduce visual clutter
 * Unconnected power pole nodes show up as red squares to indicate they aren't powered yet
+* Color-blind-friendly color palette
 * Clear the grid at any time to start fresh
 
 ## Setup
